@@ -48,19 +48,19 @@ while($user_data = mysqli_fetch_array($result))
 		<table border="0">
 			<tr> 
 				<td>Nom</td>
-				<td><input type="text" name="name" value=<?php echo $nom;?>></td>
+				<td><input type="text" name="nom" value=<?php echo $nom;?>></td>
 			</tr>
 			<tr> 
 				<td>Categorie</td>
-				<td><input type="text" name="email" value=<?php echo $categorie;?>></td>
+				<td><input type="text" name="categorie" value=<?php echo $categorie;?>></td>
 			</tr>
 			<tr> 
 				<td>Date_sortie</td>
-				<td><input type="text" name="mobile" value=<?php echo $date_sortie;?>></td>
+				<td><input type="date" name="date_sortie" value=<?php echo $date_sortie;?>></td>
 			</tr>
 			<tr> 
 				<td>Auteur</td>
-				<td><input type="text" name="mobile" value=<?php echo $auteur;?>></td>
+				<td><input type="text" name="auteur" value=<?php echo $auteur;?>></td>
 			</tr>
 			<tr>
 				<td><input type="hidden" name="id" value=<?php echo $_GET['id'];?>></td>
