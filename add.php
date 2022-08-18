@@ -1,25 +1,29 @@
 <html>
 <head>
-	<title>Add Users</title>
+	<title>Ajouter Livre</title>
 </head>
 
 <body>
-	<a href="index.php">Go to Home</a>
+	<a href="index.php">Accueil</a>
 	<br/><br/>
 
 	<form action="add.php" method="post" name="form1">
 		<table width="25%" border="0">
 			<tr> 
-				<td>Name</td>
-				<td><input type="text" name="name"></td>
+				<td>nom</td>
+				<td><input type="text" name="nom"></td>
 			</tr>
 			<tr> 
-				<td>Email</td>
-				<td><input type="text" name="email"></td>
+				<td>categorie</td>
+				<td><input type="text" name="categorie"></td>
 			</tr>
 			<tr> 
-				<td>Mobile</td>
-				<td><input type="text" name="mobile"></td>
+				<td>date_sortie</td>
+				<td><input type="date" name="date_sortie"></td>
+			</tr>
+			<tr> 
+				<td>auteur</td>
+				<td><input type="text" name="auteur"></td>
 			</tr>
 			<tr> 
 				<td></td>
@@ -32,18 +36,20 @@
 
 	// Check If form submitted, insert form data into users table.
 	if(isset($_POST['Submit'])) {
-		$name = $_POST['name'];
-		$email = $_POST['email'];
-		$mobile = $_POST['mobile'];
+		$nom = $_POST['nom'];
+		$categorie = $_POST['categorie'];
+		$date_sortie = $_POST['date_sortie'];
+		$auteur = $_POST['auteur'];
 		
 		// include database connection file
 		include_once("config.php");
 				
 		// Insert user data into table
-		$result = mysqli_query($mysqli, "INSERT INTO users(name,email,mobile) VALUES('$name','$email','$mobile')");
+		$result = mysqli_query($mysqli, "INSERT INTO livre(nom,categorie,date_sortie,auteur) VALUES('$nom','$categorie','$date_sortie','$auteur')");
 		
 		// Show message when user added
-		echo "User added successfully. <a href='index.php'>View Users</a>";
+		echo "Livre ajoute avec success";
+		header("Location:index.php");
 	}
 	?>
 </body>
