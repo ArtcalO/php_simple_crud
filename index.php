@@ -1,37 +1,33 @@
 <?php
-/**
-* Simple PHP CRUD Script
-* Developed by TutorialsClass.com
-* URL:  http://tutorialsclass.com/code/php-simple-crud-application
-**/
 
 // Create database connection using config file
 include_once("config.php");
 
 // Fetch all users data from database
-$result = mysqli_query($mysqli, "SELECT * FROM users ORDER BY id DESC");
+$result = mysqli_query($mysqli, "SELECT * FROM livre ORDER BY id DESC");
 ?>
 
 <html>
 <head>    
-    <title>Homepage</title>
+    <title>Accueil</title>
 </head>
 
 <body>
-<a href="add.php">Add New User</a><br/><br/>
+<a href="add.php">Ajouter un livre</a><br/><br/>
 
     <table width='80%' border=1>
 
     <tr>
-        <th>Name</th> <th>Mobile</th> <th>Email</th> <th>Update</th>
+        <th>NOM</th> <th>CATEGORIE</th> <th>DATE DE SORTIE</th> <th>AUTEUR</th><th>ACTIONS</th>
     </tr>
     <?php  
-    while($user_data = mysqli_fetch_array($result)) {         
+    while($liste_livre = mysqli_fetch_array($result)) {         
         echo "<tr>";
-        echo "<td>".$user_data['name']."</td>";
-        echo "<td>".$user_data['mobile']."</td>";
-        echo "<td>".$user_data['email']."</td>";    
-        echo "<td><a href='edit.php?id=$user_data[id]'>Edit</a> | <a href='delete.php?id=$user_data[id]'>Delete</a></td></tr>";        
+        echo "<td>".$liste_livre['nom']."</td>";
+        echo "<td>".$liste_livre['categorie']."</td>";
+        echo "<td>".$liste_livre['date_sortie']."</td>";   
+        echo "<td>".$liste_livre['auteur']."</td>";   
+        echo "<td><a href='edit.php?id=$liste_livre[id]'>Modifier</a> | <a href='delete.php?id=$liste_livre[id]'>Supprimer</a></td></tr>";        
     }
     ?>
     </table>
